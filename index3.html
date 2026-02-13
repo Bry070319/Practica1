@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive simple - Básico</title>
+  <style>
+    body { 
+      margin:0; 
+      font-family: Arial, sans-serif; 
+      line-height:1.5; 
+    }
+
+    header, nav, main, footer { 
+      padding: 15px; 
+    }
+
+    header { 
+      background:#1f2937; 
+      color:white; 
+    }
+
+    nav { 
+      background:#f3f4f6;
+     }
+
+    footer { 
+      background:#1f2937; 
+      color:white; 
+      text-align:center; 
+    }
+
+    /* Centramos el contenido y lo hacemos “responsive” con max-width */
+    .wrap {
+      max-width: 900px;
+      margin: auto;
+      
+    }
+    main div {
+      display: flex;
+    }
+
+    /* Navegación simple que se ajusta sola */
+    nav a {
+      display: inline-block;
+      margin: 5px 10px 5px 0;
+      padding: 8px 10px;
+      background: white;
+      border: 1px solid #ddd;
+      text-decoration: none;
+      color: #111;
+    }
+
+    /* Cajas en vertical (siempre se ve bien en móvil) */
+    .caja {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <h1>Mi Web Responsive (Súper básica)</h1>
+      <p>Esto funciona bien en móvil sin casi usar media queries.</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="#">Galería</a>
+      <a href="#">Contacto</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+      <section class="caja">
+        <h2>Sección A</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, nam.</p>
+      </section>
+
+      <section class="caja">
+        <h2>Sección B</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, nam.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 - Ejemplo básico responsive</p>
+    </div>
+  </footer>
+
+</body>
+</html>

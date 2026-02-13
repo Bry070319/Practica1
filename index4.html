@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Básica</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Mi Página Básica</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#info">Info</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>Inicio</h2>
+      <p>
+        Esta página usa <b>pseudoclases</b> como <code>:hover</code>, <code>:focus</code> y
+        <code>:valid</code>/<code>:invalid</code>.
+      </p>
+      <a class="btn" href="#contacto">Ir al formulario</a>
+    </section>
+
+
+
+    <section id="info">
+      <h2>Info</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Tarjeta 1</h3>
+          <p>Pasa el mouse encima para ver <code>:hover</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 2</h3>
+          <p>En móvil se acomodan una debajo de otra.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 1</h3>
+          <p>Pasa el mouse encima para ver <code>:hover</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 2</h3>
+          <p>En móvil se acomodan una debajo de otra.</p>
+        </div>
+      </div>
+        <div class="cards">
+        <div class="card">
+          <h3>Tarjeta 1</h3>
+          <p>Pasa el mouse encima para ver <code>:hover</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 2</h3>
+          <p>En móvil se acomodan una debajo de otra.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 1</h3>
+          <p>Pasa el mouse encima para ver <code>:hover</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Tarjeta 2</h3>
+          <p>En móvil se acomodan una debajo de otra.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+
+      <form>
+        <label>
+          Nombre:
+          <input type="text" required minlength="3" placeholder="Tu nombre" />
+        </label>
+
+        <label>
+          Email:
+          <input type="email" required placeholder="correo@ejemplo.com" />
+        </label>
+
+        <label>
+          Mensaje:
+          <textarea required minlength="10" placeholder="Escribe algo..."></textarea>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" required />
+          Acepto términos
+        </label>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 - Página básica</p>
+  </footer>
+
+</body>
+</html>

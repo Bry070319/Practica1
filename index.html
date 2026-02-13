@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive simple - Flexbox</title>
+  <style>
+    body { 
+        margin:0; 
+        font-family: Arial, sans-serif; 
+        line-height: 1.5; 
+    }
+    header, nav, main, footer { 
+        padding: 15px;
+    }
+    header { 
+        background:#333; 
+        color:white; 
+    }
+    nav { 
+        background:#eee; 
+        text-align: center;
+    }
+    footer { 
+        background:#333; 
+        color:white; 
+        text-align:center; 
+    }
+
+    /* Contenedor principal */
+    .contenedor {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .col {
+      background: #f6f6f6;
+      padding: 15px;
+      flex: 1;
+      
+      
+    }
+    .col img{
+        min-width: 10%;
+        max-width: 25%;
+        height: auto;
+    }
+    
+    /* Cuando la pantalla es pequeña: columnas una debajo de otra */
+    @media (max-width: 700px) {
+      .contenedor { 
+        flex-direction: column; }
+    }
+
+    nav a { 
+        margin-right: 10px; 
+        text-decoration: none; 
+        color:#333; 
+        
+    }
+
+    nav a:hover { 
+        text-decoration: underline;
+     }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Web Responsive (Flexbox)</h1>
+    <p>Ejemplo simple para entender responsive.</p>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <main>
+    <div class="contenedor">
+      <section class="col">
+        <h2>Sección 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, id aut, autem nisi voluptates saepe dicta expedita sed aperiam consequatur reprehenderit sapiente nobis qui magni officia. Maiores, non. Obcaecati, quas?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quam impedit alias ea expedita aperiam. Recusandae dolorem corporis exercitationem enim voluptas, eos natus, quis nesciunt amet quia dignissimos repellendus magnam!</p>
+        <img src="img/ChatGPT Image Jan 26, 2026, 07_41_11 AM.png">
+      </section>
+
+      <section class="col">
+        <h2>Sección 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quibusdam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, dicta!</p>
+        <img src="img/ChatGPT Image Jan 26, 2026, 07_41_11 AM.png">
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 - Ejemplo sencillo</p>
+  </footer>
+
+</body>
+</html>

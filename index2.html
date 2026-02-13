@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive simple - Grid</title>
+  <style>
+    body { 
+        margin:0; 
+        font-family: Arial, sans-serif; 
+        line-height:1.5; }
+
+    header, nav, main, footer { 
+        padding: 15px; 
+    }
+    header { 
+        background:#2b6cb0; 
+        color:white; 
+    }
+    nav { 
+        background:#e2e8f0; 
+        text-align: center;
+       
+    }
+    footer {
+         background:#2b6cb0; 
+         color:white; 
+         text-align:center; }
+
+    /* Grid de 2 columnas */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .caja {
+      background:#f7fafc;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+
+    
+    @media (max-width: 700px) {
+      .grid { 
+        grid-template-columns: 1fr; 
+        }
+    }
+
+    nav a { 
+        margin-right: 10px; 
+        text-decoration:none;
+        color:#1a202c; 
+        
+        
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Web Responsive (Grid)</h1>
+    <p>Ejemplo simple usando grid.</p>
+  </header>
+
+  <nav>
+        <img src="img/ChatGPT Image Jan 26, 2026, 07_41_11 AM.png">
+        <a href="#">Inicio</a>
+        <a href="#">Blog</a>
+        <a href="#">Acerca</a>
+    
+  </nav>
+
+  <main>
+    <div class="grid">
+      <article class="caja">
+        <h2>Artículo 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, totam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, a.</p>
+      </article>
+
+      <article class="caja">
+        <h2>Artículo 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, totam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, a.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>Footer - ejemplo con Grid</p>
+  </footer>
+
+</body>
+</html>
