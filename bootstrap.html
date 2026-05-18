@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Memoria con JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6ff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .info {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .tablero {
+            width: 420px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .carta {
+            width: 100px;
+            height: 100px;
+            background: #4a90e2;
+            border-radius: 10px;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .carta:hover {
+            transform: scale(1.05);
+        }
+
+        .carta.volteada {
+            background: #ffffff;
+            color: #333;
+            border: 2px solid #4a90e2;
+        }
+
+        .carta.encontrada {
+            background: #4caf50;
+            color: white;
+            cursor: default;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Juego de Memoria</h1>
+
+    <div class="info">
+        Intentos: <span id="intentos">0</span>
+    </div>
+
+    <div class="tablero" id="tablero"></div>
+
+    <button onclick="reiniciarJuego()">Reiniciar juego</button>
+
+    <script>
+        const simbolos = ["🍎", "🍌", "🍇", "🍓", "🍍", "🥝", "🍒", "🍉"];
+        let cartas = [...simbolos, ...simbolos];
+
+        let primeraCarta = null;
+        let segundaCarta = null;
+        let bloquearTablero = false;
+        let intentos = 0;
+        let parejasEncontradas = 0;
+
+        const tablero = document.getElementById("tablero");
+        const textoIntentos = document.getElementById("intentos");
+
+        function mezclarCartas() {
+            cartas.sort(() => Math.random() - 0.5);
+        }
+
+        function crearTablero() {
+            tablero.innerHTML = "";
+            mezclarCartas();
+
+            cartas.forEach((simbolo) => {
+                const carta = document.createElement("div");
+                carta.classList.add("carta");
+                carta.dataset.simbolo = simbolo;
+                carta.textContent = "?";
+
+                carta.addEventListener("click", voltearCarta);
+
+                tablero.appendChild(carta);
+            });
+        }
+
+        function voltearCarta() {
+            if (bloquearTablero) return;
+            if (this === primeraCarta) return;
+            if (this.classList.contains("encontrada")) return;
+
+            this.textContent = this.dataset.simbolo;
+            this.classList.add("volteada");
+
+            if (primeraCarta === null) {
+                primeraCarta = this;
+            } else {
+                segundaCarta = this;
+                intentos++;
+                textoIntentos.textContent = intentos;
+                verificarPareja();
+            }
+        }
+
+        function verificarPareja() {
+            const esPareja = primeraCarta.dataset.simbolo === segundaCarta.dataset.simbolo;
+
+            if (esPareja) {
+                primeraCarta.classList.add("encontrada");
+                segundaCarta.classList.add("encontrada");
+
+                primeraCarta.removeEventListener("click", voltearCarta);
+                segundaCarta.removeEventListener("click", voltearCarta);
+
+                parejasEncontradas++;
+
+                limpiarCartas();
+
+                if (parejasEncontradas === simbolos.length) {
+                    setTimeout(() => {
+                        alert("¡Felicidades! Ganaste en " + intentos + " intentos.");
+                    }, 500);
+                }
+            } else {
+                bloquearTablero = true;
+
+                setTimeout(() => {
+                    primeraCarta.textContent = "?";
+                    segundaCarta.textContent = "?";
+
+                    primeraCarta.classList.remove("volteada");
+                    segundaCarta.classList.remove("volteada");
+
+                    limpiarCartas();
+                    bloquearTablero = false;
+                }, 1000);
+            }
+        }
+
+        function limpiarCartas() {
+            primeraCarta = null;
+            segundaCarta = null;
+        }
+
+        function reiniciarJuego() {
+            primeraCarta = null;
+            segundaCarta = null;
+            bloquearTablero = false;
+            intentos = 0;
+            parejasEncontradas = 0;
+            textoIntentos.textContent = intentos;
+
+            crearTablero();
+        }
+
+        crearTablero();
+    </script>
+
+</body>
+</html>
